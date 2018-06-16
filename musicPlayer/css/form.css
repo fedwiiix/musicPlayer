@@ -1,0 +1,143 @@
+html, body, div, span, object,
+img, ol,li,ul,
+fieldset, form, label, 
+table, caption, tbody, tfoot, thead, tr, th, td,
+menu, output, audio, video, iframe {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html {
+  position: absolute;
+  top: 0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  background: #21212182;
+  font-family: 'Roboto','Arial';
+}
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#titre_pages{
+  position: fixed;
+  left:15%;
+  top:0;
+  padding-left: 5%;
+  width: 95%;
+  z-index: 1;
+  cursor:pointer;
+  font-size: 30px;
+  color: grey;
+  text-align: left;
+  background: #282828;
+  border-bottom: 1px solid #181818;
+  overflow-y: scroll;
+ }
+
+/******************************************************************* container *******************************************************************************/
+
+	.big-container {                       /*  contenaires de différentes pages  */
+		position: absolute; 
+		z-index: 0;
+		width: 83%;
+		left:15%;
+		height:96%;
+		top: 0;
+		padding:1%;
+		background-color: rgba(33, 33, 33, 0.9);
+		overflow-x: hidden;
+		z-index:4;
+		text-align: center;
+	}
+	
+  #volet    
+  {
+  	background-color:rgba(40, 40, 40, 0.9);
+  }
+
+
+#volet    
+{
+  position:absolute;    
+  z-index: 5;
+  height:96%;
+  width:15%;
+  left:0%;
+  top:0px;
+  padding: 2% 0;
+  /*background-color: #282828;*/
+  border-right: 1px solid #181818;
+  overflow: scroll;
+}
+
+.mv-item,
+.mv-item a {
+  display: inline-block;
+  width: 80%; 
+  margin: 1px;
+}
+.mv-item a {
+  padding: 8px 20px;
+  color: #666;
+  background: #FFF;
+  text-decoration: none; 
+  -webkit-transition: all .3s; 
+  -moz-transition: all .3s; 
+  transition: all .3s; 
+  overflow: hidden; 
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+.mv-item a:hover,
+.mv-item a:focus {
+  background: #1ABC9C;
+  color: #FFF;
+  padding-left: 30px; 
+}
+
+#volet li {
+  height: 40px;
+  line-height: 40px;
+  width: 80%;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+#volet li:hover {
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+#volet h3{
+	text-decoration: none;
+	font-weight: normal;
+	margin:0;
+}
+#volet h4{
+	margin:5px;
+	margin-left:30px;
+}
+#volet h4:hover{
+	margin-left:40px;
+}
+
+
+input[type="search"]{
+  position: absolute;
+  left: 20px;
+  bottom: 80px;
+  padding: 4px 2px;
+  background-image: url('../img/search.svg'); 
+  background-repeat: no-repeat; 
+  padding-left:30px; 
+  height:32px; 
+  width:32px;
+  border-radius: 100%;
+  box-shadow: 0 0 5px 2px #fff;
+  font-size: 20px;
+}
