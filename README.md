@@ -2,7 +2,7 @@
 * Music player php javascript
 
 
-Just copy folder and add your music repertory in index.php
+Just copy folder and add your music directory in index.php
 
 After, Enjoy
 
