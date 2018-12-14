@@ -3,6 +3,7 @@
 	<head>
 		<title>musicPlayer</title>	
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+	  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
