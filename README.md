@@ -6,8 +6,8 @@ It's php and javascript Music player.
 
 
 ## Install
-    * Just copy folder and add your music directory in index.php
-    * After, Enjoy
+   * Just copy folder and add your music directory in index.php
+   * After, Enjoy
 
 
 <img src="https://github.com/fedwiiix/musicPlayer/blob/master/img/Capture1.png">
