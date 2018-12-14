@@ -17,7 +17,6 @@ html {
   height: 100%;
   width: 100%;
   overflow:hidden;
-  background: #21212182;
   font-family: 'Roboto','Arial';
 }
 ::-webkit-scrollbar {
@@ -33,16 +32,18 @@ html {
   z-index: 1;
   cursor:pointer;
   font-size: 30px;
-  color: grey;
+  color: #fff;
   text-align: left;
-  background: #282828;
-  border-bottom: 1px solid #181818;
-  overflow-y: scroll;
+  background: #006dad;
+  /*border-bottom: 1px solid #181818;*/
+  overflow: hidden; 
+  white-space:nowrap;
+  text-overflow: ellipsis;
  }
 
 /******************************************************************* container *******************************************************************************/
 
-	.big-container {                       /*  contenaires de différentes pages  */
+	.big-container-musicPlayer {                       /*  contenaires de différentes pages  */
 		position: absolute; 
 		z-index: 0;
 		width: 83%;
@@ -50,7 +51,6 @@ html {
 		height:96%;
 		top: 0;
 		padding:1%;
-		background-color: rgba(33, 33, 33, 0.9);
 		overflow-x: hidden;
 		z-index:4;
 		text-align: center;
@@ -58,7 +58,7 @@ html {
 	
   #volet    
   {
-  	background-color:rgba(40, 40, 40, 0.9);
+  	background-color:#006dad;
   }
 
 

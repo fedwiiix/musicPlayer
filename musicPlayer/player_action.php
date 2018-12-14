@@ -1,9 +1,7 @@
-<?php 
-session_start();																	//on lance la session
+<?php
 
-
-	$initial_directory = $_SESSION['cloud_directory'];
-
+session_start();
+$initial_directory = $_SESSION["cloudDir"].$_SESSION["cloudMusicDir"]."/";
 
 function secure($string){	return (urldecode( $string )); } // return urldecode( htmlentities(stripslashes($string),NULL,'UTF-8') );
 $_ = array();
@@ -78,7 +76,7 @@ switch($_['action']){
 
 	if( $extension=="mp3"  || $extension=="m4a" ){ 	
 
-        require_once(dirname(__FILE__).'/../php/api/id3master/getid3/getid3.php');
+        require_once(dirname(__FILE__).'/id3master/getid3/getid3.php');
 	   
         $getID3 = new getID3; // Initialize getID3 engine
         $ThisFileInfo = $getID3->analyze( $initial_directory.$file );
@@ -108,6 +106,8 @@ switch($_['action']){
 
 }
 //echo '{"result":"'.$result.'"}';
+
+
 
 
 ?>

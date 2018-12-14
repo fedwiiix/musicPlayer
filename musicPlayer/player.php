@@ -1,9 +1,10 @@
-<?php
-
+<?php 
 
 if(isset( $_GET["file"]))
 {
-    $file = urldecode($_GET["file"]);
+  session_start();
+  $initial_directory = $_SESSION["cloudDir"].$_SESSION["cloudMusicDir"]."/";
+  $file = $initial_directory."/".urldecode($_GET["file"]);
 	$extension = pathinfo($file, PATHINFO_EXTENSION);
     $type = mime_content_type($file);
 

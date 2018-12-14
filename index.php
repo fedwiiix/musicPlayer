@@ -18,8 +18,9 @@
     
     <?php 
 
-  session_start();
-  $_SESSION['cloud_directory']="/music/";   // Your music folder
+    session_start();
+    $_SESSION["cloudDir"]="/home/";
+    $_SESSION["cloudMusicDir"]="music";
     
   require ('musicPlayer/musicPlayer.php'); ?>
 

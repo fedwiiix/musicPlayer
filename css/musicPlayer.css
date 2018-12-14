@@ -13,12 +13,12 @@
 }
 
 #musicbox{
-  position: absolute;
+  position: fixed;
   z-index: 4;
   height: 100px;
-  width:100%;
-  background: rgba(40, 40, 40, 1);
-  bottom: 0;
+  width:85%;
+  background: #333;
+  bottom: 0px;
   right: 0;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
 /*************************************** playlist *****************************************************/
 
 .nb_playlist, .playlist_title{
-  color:white;
+  /*color:white;*/
   width: 95%;
   text-align: left;
 }
@@ -50,14 +50,14 @@
   width:90%;
   padding: 8px 10px 0px 10px;
   text-align:left;
-  color:white;
+  /*color:white;*/
   border-bottom: 1px solid rgba(85, 85, 85, 0.439);
   overflow: hidden;
   text-overflow: ellipsis; 
   white-space: nowrap;
 }
 .music_title:hover{
-  background: rgba(233, 165, 165, 0.3);
+  background: #fff;
 }
 .music_header_title{
   color:grey;
@@ -120,11 +120,11 @@
   width: 80%;
   height:3px;
   cursor: pointer;
-  background-color:#d3d3d3;
+  background-color:#ccc;
 }
-#player_progress::-webkit-progress-bar { background-color:#d3d3d3; }
-#player_progress::-webkit-progress-value { background-color:#4CAF50; } 
-#player_progress::-moz-progress-bar { background-color:#4CAF50; }
+/*#player_progress::-webkit-progress-bar { background-color:#d3d3d3; }
+#player_progress::-webkit-progress-value { background-color:#006dad; } 
+#player_progress::-moz-progress-bar { background-color:#006dad; }*/
 #player_progress:hover{
   height: 7px;  
 }
@@ -143,6 +143,7 @@
   position:absolute;
   top:10px;
   right:10%;
+  color:#006dad;
 }
 #player_artist,#player_album,#player_year{
   position: absolute;
@@ -151,6 +152,7 @@
   overflow: hidden;
   text-overflow: ellipsis; 
   white-space: nowrap;
+  color:#006dad;
 }
 #player_artist{
   left: 25%;  
@@ -195,14 +197,14 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #006dad;
   cursor: pointer;
 }
 #player_volume::-moz-range-thumb {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #006dad;
   cursor: pointer;
 }
 
@@ -219,6 +221,7 @@
   width: 100%;
   height: 200px;
   border-bottom: 1px solid rgba(85, 85, 85, 0.439);
+  color:#006dad;
 }
 #player_titre_affichage{
   padding-top: 30px;
@@ -234,69 +237,43 @@
 
 /********************************************** playlist bp *********************************************************/
 
-.bp_playlist {
-  position: absolute; width: 90px; bottom:20px; right:100px;
-  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+.bp_playlist{
+  position:absolute;
+  right:100px;
+  bottom:20px;
+}
+.bp_playlist button {
+  width: 50px;
+  border-radius: 28px 0 0 28px;
+  background-color: #006dad;
+}
+.bp_playlist .info {
+  border-radius: 0 28px 28px 0;
 }
 
-.bp_playlist-checkbox {
-  display: none;
-}
-.bp_playlist-label {
-  display: block; overflow: hidden; cursor: pointer;
-  border: 2px solid #999999; border-radius: 20px;
-}
-.bp_playlist-inner {
-  display: block; width: 200%; margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
-}
-.bp_playlist-inner:before, .bp_playlist-inner:after {
-  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-  box-sizing: border-box;
-}
-.bp_playlist-inner:before {
-  content: "Playlist";
-  padding-right: 20px;
-  background-color: #34C24C; color: #FFFFFF;
-}
-.bp_playlist-inner:after {
-  content: "Playlist";
-  padding-right: 10px;
-  background-color: #EEEEEE; color: #999999;
-  text-align: right;
-}
-.bp_playlist-switch {
-  display: block; width: 18px; margin: 6px;
-  background: #FFFFFF;
-  position: absolute; top: 0; bottom: 0;
-  right: 56px;
-  border: 2px solid #999999; border-radius: 20px;
-  transition: all 0.3s ease-in 0s; 
-}
-.bp_playlist-checkbox:checked + .bp_playlist-label .bp_playlist-inner {
-  margin-left: 0;
-}
-.bp_playlist-checkbox:checked + .bp_playlist-label .bp_playlist-switch {
-  right: 0px; 
-}
+
 
 /***************************************** random bp ***************************************************/
 
 
-#bp_aleatoire + label > img {
+#bp_aleatoire + label > aaaa {
   position: absolute; bottom:20px; right:20px;
-  width: 30px;
-  height:30px;
+  width: 20px;
+  height:20px;
   background-color: rgba(250, 250, 250, 0.3);
   border-radius: 50%;
   padding:10px;
+  cursor:pointer;
+  background-repeat: no-repeat;
+	background-size: cover;
+	-moz-backgroud-size:90% 90%;
+	-o-backgroud-size:90% 90%;
+  -webkit-backgroud-size:90% 90%;
+  background-image: url(../img/music/random.png);
 }
-
 #bp_aleatoire {
   display: none;
 }
-
-#bp_aleatoire:checked + label > img {
-  background-color: rgba(76, 175, 79, 0.7);
+#bp_aleatoire:checked + label > aaaa {
+  background-color: #006dad;
 }

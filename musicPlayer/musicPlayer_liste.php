@@ -1,8 +1,9 @@
-<?php 
+<?php
+
 session_start();
-$initial_directory = $_SESSION["cloud_directory"];
-		  
-$allowed_ext = array('png', 'jpg', 'gif', 'pdf', 'mp4', 'avi','m4a', 'mp3','txt','css','js','html','php','h','c','py','sh');
+$initial_directory = $_SESSION["cloudDir"].$_SESSION["cloudMusicDir"]."/";
+
+$allowed_ext = array('png', 'jpg', 'gif', 'pdf', 'mp4', 'avi','m4a', 'mp3', 'wma','txt','css','js','html','php','h','c','py','sh');
 
 if(isset( $_GET["recherche"])) 
 {
@@ -10,6 +11,22 @@ if(isset( $_GET["recherche"]))
 }else{
 	$recherche = '';
 }
+
+if(isset( $_GET["directories"]))
+{
+  
+    echo "<div hidden id='cloud_directory'>".$initial_directory."</div>";
+		$dir = scandir($initial_directory) or die($initial_directory.' Erreur de listage : le répertoire n\'existe pas'); // on ouvre le contenu du dossier courant
+		foreach ($dir as $element) {   
+			if($element != '.' && $element != '..') {
+				if (is_dir($initial_directory.'/'.$element)) {
+					?><li class="mv-item"><a onclick="afficher_music_file('<?php echo $element; ?>')"><?php echo $element ?></a></li><?php
+				}
+			}
+		}
+  
+}else{
+
 
 if(isset( $_GET["dossier"]) && $_GET["dossier"])
 {
@@ -80,9 +97,8 @@ if(isset( $_GET["dossier"]) && $_GET["dossier"])
 	}
 
 
-	?><div id="titre_pages"><?php echo "Toutes les Musique"; ?></div><?php
+	?><div id="titre_pages"><?php echo "Toutes les Musiques"; ?></div><?php
 }
-$_SESSION['upload_directory'] = $directory;
 
 
 $titre = explode('/',$dir_name);
@@ -94,7 +110,7 @@ $prec_dir = substr($dir_name,0,-strlen($titre_dir)-1);
 if( strlen($prec_dir)>0 ){
 	?>
 	<div id="titre_pages">
-	<img onclick="afficher_dossier('<?php echo urlencode($prec_dir) ?>')" height="40px" src="img/precedent.png" style="float:left; cursor:pointer; padding-top:5px;"><?php echo $titre_dir; ?></div>
+	<img onclick="afficher_music_file('<?php echo urlencode($prec_dir) ?>')" height="30px" src="img/cloud/precedent.png" style="float:left; cursor:pointer; padding-top:5px;"><?php echo $titre_dir; ?></div>
 <?php }else{ ?>
 	<div id="titre_pages"><?php echo $titre_dir; ?></div>
 <?php } 
@@ -109,12 +125,12 @@ if(!empty($dossier)){
 
 	foreach($dossier as $lien){
 		
-		?><div class="folder_title" title="<?php echo $lien ?>" onclick="afficher_dossier('<?php echo urlencode($dir_name."/".$lien) ?>')"><?php echo $lien ?></div><?php
+		?><div class="folder_title" title="<?php echo $lien ?>" onclick="afficher_music_file('<?php echo urlencode($dir_name."/".$lien) ?>')"><?php echo $lien ?></div><?php
 	}
 ?><br><br><?php
 }
 
-?><div class="music_header_title">Title</div><?php
+?><div class="music_header_title">Titre</div><?php
 $i=0;
 if(!empty($fichier)){
 	foreach($fichier as $lien) {
@@ -124,3 +140,7 @@ if(!empty($fichier)){
 	}
 }
 ?><div style="height:150px; width:100%;"></div>
+
+
+<?php } ?>
+

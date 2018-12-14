@@ -1,9 +1,16 @@
+<?php 
+
+session_start();
+$initial_directory = $_SESSION['cloudDir'] ?>
+		
+			
+
+<!-- ********************************************************************************************************************************************************************* -->
 
 	<div id="volet" align="center" oncontextmenu="return monmenu(this,'')">
 		<li class="mv-item"><a onclick="afficher_music_file('')">Toutes</a></li>
 		<?php 
-    session_start();
-		$directory= $_SESSION["cloudDir"].$_SESSION["cloudMusicDir"];
+		$directory= $initial_directory.'/Musique';
 		$dir = scandir($directory) or die($directory.' Erreur de listage : le répertoire n\'existe pas'); // on ouvre le contenu du dossier courant
 		foreach ($dir as $element) {   
 			if($element != '.' && $element != '..') {
@@ -72,6 +79,7 @@
 
 //******************************************************************************************************************* var and fuctions
 
+initial_music_directory ="<?php echo $initial_directory ?>";
 actif_music_dir =""
 
 player_1 = document.getElementById("player_1");
@@ -111,9 +119,8 @@ function play_music(link,name, n){
 
 	if(playlistMode && name!='' ){
 		$( ".playlist" ).append( "<li class='playlist_title'  name='"+link+"' ondblclick='$(this).remove(); play_music( \""+link+"\",\"\","+n+")' >"+name+"</li>" );
-	}else if(link!=undefined){
-    window.stop() // reset of navigator download
-		$('#'+actif_player_id).attr("src","musicPlayer/player.php?file="+(link))	
+	}else{
+		$('#'+actif_player_id).attr("src","musicPlayer/player.php?file="+(initial_music_directory+"/"+link))	
 		$(".bp_play").css('background-image','url(img/music/pause.png)')
 		get_music_tag( link )
 		actif_music=parseInt(n)
@@ -309,7 +316,7 @@ function get_music_tag( file ){
 					}
 				}
 			},
-			"error": function(jqXHR, textStatus){ /*alert('Request failed: ' + textStatus);*/ }
+			"error": function(jqXHR, textStatus){ alert('Request failed: ' + textStatus); }
 	});	
 }
 
@@ -354,7 +361,7 @@ $.ajax({
 				}
 			}
 		},
-		"error": function(jqXHR, textStatus){ /*alert('Request failed: ' + textStatus);*/ }
+		"error": function(jqXHR, textStatus){ alert('Request failed: ' + textStatus); }
 });	
 }
 
@@ -363,24 +370,32 @@ $.ajax({
 function seach(recherche){
 	$("#musicPlayer_liste").load("musicPlayer/musicPlayer_liste.php?dossier="+encodeURIComponent(actif_music_dir)+"&recherche="+encodeURIComponent(recherche));
 }
+
 $( "#recherche" ).mouseover(function() {
   $("#recherche").animate({'border-radius':'10%','width':'80%'},200);
 });
 $( "#recherche" ).mouseleave(function() {
-	if($("#recherche").val()==''){
-    setTimeout(function() {
+	if(document.getElementById("recherche").value==''){
+  setTimeout(function() {
       $("#recherche").stop().animate({'width':'32px','border-radius':'80%'},500);
-    }, 1000);
+      }, 1000);
 	}
 });
-$("#recherche").keydown(function() { seach($("#recherche").val());  });
-$("#recherche").keyup(function() {
-        seach($("#recherche").val()); 
-	if($("#recherche").val()==''){
-    setTimeout(function() {
-        $("#recherche").stop().animate({'width':'32px','border-radius':'80%'},500);
-    }, 1000);
+  var text = document.getElementById("recherche");
+  text.addEventListener('keydown', function() {
+    var recherche = document.getElementById("recherche").value;
+        seach(recherche);  }, false);
+  text.addEventListener('keyup', function() {
+    var recherche = document.getElementById("recherche").value;
+        seach(recherche);  
+	if(document.getElementById("recherche").value==''){
+  setTimeout(function() {
+      $("#recherche").stop().animate({'width':'32px','border-radius':'80%'},500);
+      }, 1000);
 	}	
-});
+	if(document.getElementById("recherche").value!=''){
+  $("#recherche").animate({'border-radius':'10%','width':'80%'},200);
+	}	
+	}, false);
 
 </script>
