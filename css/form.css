@@ -41,6 +41,20 @@ html {
   text-overflow: ellipsis;
  }
 
+button{
+  background: #006dad; /*0069B5*/
+  opacity:0.8;
+  font-family: 'Roboto','Arial'; 
+  color: #ffffff;
+  margin: 5px 0px;
+  font-size: 15px;
+  text-align:center;
+  border: 0px;
+  border-radius: 28px;
+  cursor:pointer;
+  padding: 1% 2%;
+}
+
 /******************************************************************* container *******************************************************************************/
 
 	.big-container-musicPlayer {                       /*  contenaires de différentes pages  */

@@ -10,11 +10,11 @@ It's php and javascript Music player.
     * After, Enjoy
 
 
-<img src="https://github.com/fred-sjtm/musicPlayer/blob/master/img/musicPlayer.jpg">
+<img src="https://github.com/fedwiiix/musicPlayer/blob/master/img/Capture1.jpg">
 
 Create your music in playlist
 
-<img src="https://github.com/fred-sjtm/musicPlayer/blob/master/img/playlist.jpg">
+<img src="https://github.com/fedwiiix/musicPlayer/blob/master/img/Capture2.jpg">
 
 ## Infos
   * Get id3 tag info by James Heinrich: https://github.com/JamesHeinrich/getID3 
