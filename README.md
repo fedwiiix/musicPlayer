@@ -2,9 +2,6 @@
 ***This project is part of the Aya project***
 It's php and javascript Music player.
 
-[**Demo**](https://sjtm.fr/demo/musicPlayer/index.php)
-
-
 ## Install
    * Just copy folder and add your music directory in index.php
    * After, Enjoy
